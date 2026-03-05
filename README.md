@@ -2,17 +2,17 @@
 
 [Chosen](https://github.com/harvesthq/chosen) is a library for making long, unwieldy select boxes more user friendly.
 
-The `chosen-rails` gem integrates the `Chosen` into Rails asset pipeline with the [sprockets-rails](https://github.com/rails/sprockets-rails).
+The `chosen-dartsass` gem integrates the `Chosen` into Rails asset pipeline with the [propshaft](https://github.com/rails/propshaft), using [dartsass-rails](https://github.com/rails/dartsass-rails).
 
 ## Usage
 
-### Install chosen-rails gem
+### Install chosen-dartsass gem
 
-Include `chosen-rails` in Gemfile
+Include `chosen-dartsass` in Gemfile
 
 ```rb
 gem 'jquery-rails'
-gem 'chosen-rails'
+gem 'chosen-dartsass'
 ```
 
 Then run `bundle install`
@@ -32,13 +32,6 @@ Add to your `app/assets/javascripts/application.js` if use with jQuery
 //= require chosen-jquery
 ```
 
-Or with Prototype
-
-```coffee
-//= require jquery
-//= require chosen-prototype
-```
-
 ### Include chosen stylesheet assets
 
 Add to your `app/assets/stylesheets/application.css`
@@ -55,15 +48,17 @@ For rails 6, remember to add `javascript_include_tag` in `app/views/layouts/appl
 <%= javascript_include_tag 'application' %>
 ```
 
-Add to one coffee script file, like `scaffold.js.coffee`
+Add to one javascript file, like `scaffold.js`
 
-```coffee
-$ ->
-  # enable chosen js
-  $('.chosen-select').chosen
-    allow_single_deselect: true
-    no_results_text: 'No results matched'
+```js
+$(function() {
+  // enable chosen js
+  $('.chosen-select').chosen({
+    allow_single_deselect: true,
+    no_results_text: 'No results matched',
     width: '200px'
+  });
+});
 ```
 
 Notice: `width` option is required since `Chosen 0.9.15`.
@@ -97,13 +92,13 @@ If you use simple form as form builder
 
 ### Deployment
 
-Since version 0.13.0, non-digested assets of `chosen-rails` will simply be copied from digested assets.
+Since version 0.13.0, non-digested assets of `chosen-dartsass` will simply be copied from digested assets.
 
 ## RSpec helpers
-`chosen-rails` provides RSpec feature helper methods that allow users to select or unselect options from both single and multiple chosen elements. Add the following to your `spec/rails_helper.rb` (or `spec/spec_helper.rb`):
+`chosen-dartsass` provides RSpec feature helper methods that allow users to select or unselect options from both single and multiple chosen elements. Add the following to your `spec/rails_helper.rb` (or `spec/spec_helper.rb`):
 
 ```ruby
-require 'chosen-rails/rspec'
+require 'chosen-dartsass/rspec'
 ```
 
 This automatically configures RSpec by adding:
@@ -146,7 +141,7 @@ chosen_unselect('Leo Tolstoy', from: '#authors')
 
 ## Gem maintenance
 
-Maintain `chosen-rails` gem with `Rake` commands.
+Maintain `chosen-dartsass` gem with `Rake` commands.
 
 Update origin chosen source files.
 
