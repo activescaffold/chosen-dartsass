@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/activescaffold/chosen-dartsass'
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  gem.files         = `git ls-files`.split("\n")
+  gem.files         = `git ls-files`.split("\n").select { |file| File.file?(file) }
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = 'chosen-dartsass'
   gem.require_paths = ['lib']
@@ -22,5 +22,4 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'bundler', '>= 1.0'
   gem.add_development_dependency 'rails', '>= 7.0'
   gem.add_development_dependency 'thor', '>= 0.14'
-  gem.add_development_dependency 'coffee-rails', '>= 3.2'
 end

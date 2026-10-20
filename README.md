@@ -1,6 +1,6 @@
 # Chosen for rails asset pipeline
 
-[Chosen](https://github.com/harvesthq/chosen) is a library for making long, unwieldy select boxes more user friendly.
+[Chosen](https://github.com/JJJ/chosen) is a library for making long, unwieldy select boxes more user friendly. This gem packages the actively maintained `chosen-jjj` fork.
 
 The `chosen-dartsass` gem integrates the `Chosen` into Rails asset pipeline with the [propshaft](https://github.com/rails/propshaft), using [dartsass-rails](https://github.com/rails/dartsass-rails).
 
@@ -27,7 +27,7 @@ Please consider [jquery-turbolinks](https://github.com/kossnocorp/jquery.turboli
 
 Add to your `app/assets/javascripts/application.js` if use with jQuery
 
-```coffee
+```javascript
 //= require jquery
 //= require chosen-jquery
 ```
@@ -65,7 +65,7 @@ Notice: `width` option is required since `Chosen 0.9.15`.
 
 And this file must be included in `application.js`
 
-```coffee
+```javascript
 //= require chosen-jquery
 //= require scaffold
 ```
@@ -143,7 +143,7 @@ chosen_unselect('Leo Tolstoy', from: '#authors')
 
 Maintain `chosen-dartsass` gem with `Rake` commands.
 
-Update origin chosen source files.
+Update the chosen-jjj source files.
 
 ```bash
 rake update-chosen
