@@ -2,18 +2,31 @@
 
 [Chosen](https://github.com/JJJ/chosen) is a library for making long, unwieldy select boxes more user friendly. This gem packages the actively maintained `chosen-jjj` fork.
 
-The `chosen-dartsass` gem integrates the `Chosen` into Rails asset pipeline with the [propshaft](https://github.com/rails/propshaft), using [dartsass-rails](https://github.com/rails/dartsass-rails).
+The `chosen-dartsass` gem integrates Chosen into the Rails asset pipeline. It supports either [Propshaft](https://github.com/rails/propshaft) with [dartsass-rails](https://github.com/rails/dartsass-rails), or [Sprockets](https://github.com/rails/sprockets) with [dartsass-sprockets](https://github.com/tablecheck/dartsass-sprockets).
 
 ## Usage
 
 ### Install chosen-dartsass gem
 
-Include `chosen-dartsass` in Gemfile
+Include `chosen-dartsass` and one Sass integration in your Gemfile.
+
+For Propshaft:
 
 ```rb
 gem 'jquery-rails'
+gem 'dartsass-rails'
 gem 'chosen-dartsass'
 ```
+
+For Sprockets:
+
+```rb
+gem 'jquery-rails'
+gem 'dartsass-sprockets'
+gem 'chosen-dartsass'
+```
+
+Do not install both Sass integrations in the same application.
 
 Then run `bundle install`
 
@@ -34,10 +47,16 @@ Add to your `app/assets/javascripts/application.js` if use with jQuery
 
 ### Include chosen stylesheet assets
 
-Add to your `app/assets/stylesheets/application.css`
+With `dartsass-rails`, add this to `app/assets/stylesheets/application.scss`:
 
 ```scss
-*= require chosen
+@use "chosen";
+```
+
+With `dartsass-sprockets`, add this to the manifest comment in `app/assets/stylesheets/application.css` or `application.scss`:
+
+```scss
+ *= require chosen
 ```
 
 ### Enable chosen javascript by specific css class
